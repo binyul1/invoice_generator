@@ -1,0 +1,31 @@
+<h2>Invoice Detail</h2>
+<p>Invoice ID: {{ invoice.id }}</p>
+<p>Name: {{ invoice.customer.name }}</p>
+<p>Due Date: {{ invoice.due_date }}</p>
+<p>Total Amount: {{ invoice.total_amount }}</p>
+
+<h3>Items</h3>
+<table>
+    <thead>
+        <tr>
+            <th>product name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.description }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ invoice.total_amount }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4">No items found for this invoice.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

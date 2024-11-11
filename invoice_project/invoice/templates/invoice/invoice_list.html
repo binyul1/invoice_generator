@@ -1,0 +1,14 @@
+<h1>Invoices</h1>
+<ul>
+    {% for invoice in invoices %}
+        <li>
+            <a href="{% url 'invoice_detail' invoice.pk %}">
+                Invoice #{{ invoice.id }} for {{ invoice.customer.name }} - ${{ invoice.total_amount }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No invoices available.</li>
+    {% endfor %}
+</ul>
+
+<p><a href="{% url 'create_invoice' %}">Create a New Invoice</a></p>

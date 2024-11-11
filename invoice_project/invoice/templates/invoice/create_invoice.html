@@ -1,0 +1,6 @@
+<h1>Create Invoice</h1>
+<form method="post">
+  {% csrf_token %} {{ customer_form.as_p }} {{ item_formset.management_form }}
+  {% for form in item_formset %} {{ form.as_p }} {% endfor %}
+  <button type="submit">Create Invoice</button>
+</form>
